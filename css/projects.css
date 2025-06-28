@@ -1,0 +1,1049 @@
+/* LocalForge Engine - Projects Page Specific Styles */
+
+/* ============================================
+   PROJECTS PAGE LAYOUT
+   ============================================ */
+.projects-page {
+  background: linear-gradient(
+    135deg,
+    var(--gray-900) 0%,
+    var(--gray-800) 50%,
+    var(--primary) 100%
+  );
+  min-height: 100vh;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Projects hero usa estilos globales de hero-section */
+
+/* ============================================
+   PROJECT CREATION WIZARD
+   ============================================ */
+.project-type-card {
+  bac  .project-type-card {
+    padding: var(--space-xl);
+    margin-bottom: var(--space-lg);
+    height: 240px;
+  }
+  
+  .project-type-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-md);
+  }
+  
+  .project-type-description {
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+  }
+}
+
+.project-type-card {
+  background: white;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  height: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  overflow: hidden;
+  word-wrap: break-word;
+  hyphens: auto;
+  gap: var(--space-sm);
+}
+
+.project-type-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-primary);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.project-type-card.selected {
+  border-color: var(--success);
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.03) 0%, rgba(5, 150, 105, 0.01) 100%);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.project-type-card.selected::before {
+  background: var(--gradient-accent);
+  transform: scaleX(1);
+}
+
+.project-type-icon {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+
+.project-type-card.selected .project-type-icon {
+  color: var(--success);
+}
+
+.project-type-name {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+
+.project-type-description {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  word-break: break-word;
+  margin: 0;
+  flex-grow: 1;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Improve content distribution within fixed height cards */
+.project-type-card .project-type-icon {
+  flex-shrink: 0;
+  margin-bottom: var(--space-sm);
+}
+
+.project-type-card .project-type-name {
+  flex-shrink: 0;
+  margin-bottom: var(--space-sm);
+}
+
+.project-type-card .project-type-description {
+  flex-grow: 1;
+  margin-top: 0;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ============================================
+   WIZARD COMPONENTS - IMPROVED
+   ============================================ */
+.wizard-step {
+  display: none;
+  width: 100%;
+}
+
+.wizard-step.active {
+  display: block !important;
+  animation: fadeInUp 0.3s ease;
+  width: 100%;
+}
+
+.wizard-step-title {
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-bottom: var(--space-xl);
+  padding-bottom: var(--space-lg);
+  padding-left: var(--space-md);
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  font-size: 1.2rem;
+}
+
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--gradient-primary);
+  color: white;
+  border-radius: 50%;
+  font-weight: 700;
+  margin-right: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+  font-size: 1.1rem;
+}
+
+/* CREATION WIZARD MODERN STYLING */
+.creation-wizard.modern {
+  background: white;
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(226, 232, 240, 0.6);
+}
+
+.creation-wizard.modern .wizard-step {
+  padding: var(--space-lg) 0;
+}
+
+.creation-wizard.modern .form-control,
+.creation-wizard.modern .form-select {
+  background: var(--gray-50);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md) var(--space-lg);
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.creation-wizard.modern .form-control:focus,
+.creation-wizard.modern .form-select:focus {
+  background: white;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.creation-wizard.modern .form-label {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+  font-size: 0.95rem;
+}
+
+/* WIZARD CONTROLS */
+.wizard-controls {
+  background: rgba(248, 250, 252, 0.7);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  margin-top: var(--space-xl);
+  border: 1px solid rgba(226, 232, 240, 0.5);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.wizard-controls .d-flex {
+  padding: 2px;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.wizard-controls .btn {
+  border-radius: var(--radius-lg);
+  padding: var(--space-md) var(--space-xl);
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin: 0 var(--space-sm);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   PROJECT PREVIEW - IMPROVED
+   ============================================ */
+.project-preview {
+  background: linear-gradient(135deg, var(--gray-50) 0%, rgba(248, 250, 252, 0.8) 100%);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  border: 1px solid var(--border-light);
+}
+
+.project-preview.modern {
+  background: linear-gradient(135deg, var(--gray-50) 0%, rgba(248, 250, 252, 0.8) 100%);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl);
+  border: 2px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.preview-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-light);
+}
+
+.preview-card.modern {
+  background: white;
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  position: relative;
+}
+
+.preview-card.modern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-accent);
+}
+
+.preview-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-lg);
+  border-bottom: 2px solid var(--border);
+}
+
+.project-icon {
+  font-size: 2.5rem;
+  color: var(--success);
+  margin-right: var(--space-lg);
+  padding: var(--space-md);
+  background: rgba(16, 185, 129, 0.1);
+  border-radius: var(--radius-lg);
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-info h6 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.project-info p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin: 0;
+  font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+}
+
+.preview-features h6 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-md);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.preview-features h6::before {
+  content: "✨";
+  font-size: 1.1rem;
+}
+
+.preview-title {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: var(--space-lg);
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.feature-list li {
+  padding: var(--space-sm) 0;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.feature-list li:last-child {
+  border-bottom: none;
+}
+
+.feature-list li:before {
+  content: "✓";
+  color: var(--success);
+  font-weight: bold;
+  margin-right: var(--space-md);
+  font-size: 1.1rem;
+  width: 20px;
+  text-align: center;
+}
+
+.feature-list.modern {
+  background: var(--gray-50);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  margin-top: var(--space-md);
+}
+
+.feature-list.modern li {
+  padding: var(--space-md) 0;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+  font-size: 0.95rem;
+}
+
+.feature-list.modern li:before {
+  content: "✓";
+  color: var(--success);
+  font-weight: bold;
+  margin-right: var(--space-md);
+  font-size: 1.1rem;
+  width: 24px;
+  height: 24px;
+  background: rgba(16, 185, 129, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ============================================
+   CREATION PROGRESS
+   ============================================ */
+.creation-steps {
+  margin: 1.5rem 0;
+}
+
+.creation-steps .step-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.creation-steps .step-item.active {
+  border-color: var(--primary);
+  background: #eff6ff;
+}
+
+.creation-steps .step-item.completed {
+  border-color: var(--success);
+  background: #f0fdf4;
+}
+
+.creation-steps.modern {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.step-item.modern {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.step-item.modern.active {
+  border-color: var(--primary);
+  background: #eff6ff;
+}
+
+.step-item.modern.completed {
+  border-color: var(--success);
+  background: #f0fdf4;
+}
+
+.step-icon {
+  margin-right: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.step-text {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.creation-logs {
+  background: var(--gray-100);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  max-height: 300px;
+  overflow-y: auto;
+  font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+  font-size: 0.875rem;
+}
+
+.creation-logs.modern {
+  background: var(--gray-900);
+  color: var(--gray-100);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  max-height: 300px;
+  overflow-y: auto;
+  font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+  font-size: 0.875rem;
+  border: 1px solid var(--gray-800);
+}
+
+.log-entry {
+  margin-bottom: 0.25rem;
+  line-height: 1.4;
+}
+
+.log-entry:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================
+   MODERN INPUT STYLING
+   ============================================ */
+.modern-input {
+  background: white;
+  border: 2px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.modern-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  outline: none;
+}
+
+/* PROJECT CREATION CARD - SPECIAL STYLING */
+.project-creation-card {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.02) 0%, rgba(59, 130, 246, 0.01) 100%);
+  border: 2px solid var(--border-light);
+  position: relative;
+  overflow: hidden;
+}
+
+.project-creation-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-primary);
+}
+
+.creation-status {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-sm) var(--space-md);
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--success);
+  border-radius: var(--radius-lg);
+  font-size: 0.875rem;
+  font-weight: 500;
+  gap: var(--space-xs);
+}
+
+/* ============================================
+   PROJECT CREATION CARD SPACING OPTIMIZATION
+   ============================================ */
+
+/* Optimize nested padding in project creation card */
+.project-creation-card .card-body {
+  padding: var(--space-lg) var(--space-xl) var(--space-xl) var(--space-xl) !important;
+  background: white;
+  border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+  /* This rule overrides Bootstrap's p-4 class and other conflicting mobile styles */
+}
+
+.project-creation-card .creation-wizard.modern {
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* Adjust wizard step spacing within optimized container */
+.project-creation-card .wizard-step {
+  padding: var(--space-lg) 0;
+  margin-bottom: var(--space-lg);
+}
+
+/* Reduce excessive spacing around project type grid */
+.project-creation-card #projectTypesContainer {
+  margin: var(--space-md) 0 var(--space-lg) 0;
+}
+
+.project-creation-card .wizard-step:last-child {
+  margin-bottom: 0;
+}
+
+/* Optimize form controls spacing */
+.project-creation-card .wizard-controls {
+  margin-top: var(--space-lg);
+  padding: var(--space-md) 0 0 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* Large tablets (768px - 991px) */
+@media (max-width: 991px) {
+  .main-content {
+    padding: var(--space-xl) 0;
+  }
+  
+  .project-type-card {
+    padding: var(--space-lg);
+    height: 200px;
+  }
+  
+  .project-type-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-md);
+  }
+  
+  .project-type-description {
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+}
+
+/* Small tablets and large phones (576px - 767px) */
+@media (max-width: 767px) {
+  .main-content {
+    padding: var(--space-lg) 0;
+    border-radius: var(--space-md) var(--space-md) 0 0;
+  }
+  
+  .project-type-card {
+    padding: var(--space-lg);
+    margin-bottom: var(--space-md);
+    height: 200px;
+  }
+  
+  .project-type-icon {
+    font-size: 2rem;
+    margin-bottom: var(--space-sm);
+  }
+  
+  .project-type-name {
+    font-size: 1rem;
+    margin-bottom: var(--space-sm);
+  }
+  
+  .project-type-description {
+    font-size: 0.8rem;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+  }
+  
+  .progress-panel {
+    padding: var(--space-lg);
+    margin: 0 var(--space-md);
+    border-radius: var(--radius-xl) !important;
+    border: 1px solid var(--border-light) !important;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .step-item.modern {
+    padding: 0.75rem;
+  }
+  
+  .modern-progress-bar {
+    height: 10px;
+  }
+  
+  .project-creation-card {
+    margin: 0 var(--space-md);
+    border-radius: var(--radius-xl) !important;
+    border: 1px solid var(--border-light) !important;
+    box-shadow: var(--shadow-sm);
+    background: linear-gradient(135deg, var(--surface) 0%, rgba(248, 250, 252, 0.8) 100%);
+    overflow: visible;
+  }
+  
+  .project-creation-card::before {
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+  }
+  
+  .project-creation-card .feature-card-header {
+    padding: var(--space-lg);
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(59, 130, 246, 0.02) 100%);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    margin: -1px -1px 0 -1px;
+    border-bottom: 1px solid rgba(37, 99, 235, 0.1);
+  }
+  
+  .project-creation-card .card-body {
+    padding: var(--space-lg) var(--space-xl) var(--space-xl) var(--space-xl) !important;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  }
+}
+
+/* Mobile phones (up to 575px) */
+@media (max-width: 575px) {
+  .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  
+  .main-content {
+    padding: var(--space-md) 0;
+    margin-top: 0;
+    border-radius: 0;
+  }
+  
+  .project-type-card {
+    padding: var(--space-md);
+    margin-bottom: var(--space-sm);
+    height: 180px;
+  }
+  
+  .project-type-icon {
+    font-size: 1.75rem;
+    margin-bottom: var(--space-xs);
+  }
+  
+  .project-type-name {
+    font-size: 0.95rem;
+    margin-bottom: var(--space-xs);
+  }
+  
+  .project-type-description {
+    font-size: 0.8rem;
+    margin-bottom: var(--space-sm);
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+  }
+  
+  .feature-card {
+    margin: 0 -0.75rem;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+  
+  /* Special handling for progress-panel to look less boxy */
+  .progress-panel {
+    padding: var(--space-lg) var(--space-md);
+    margin: var(--space-md) var(--space-sm);
+    border-radius: var(--radius-lg) !important;
+    border: 1px solid var(--border-light) !important;
+    background: linear-gradient(135deg, var(--surface) 0%, rgba(248, 250, 252, 0.8) 100%);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  .step-item.modern {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .modern-progress-bar {
+    height: 8px;
+  }
+  
+  .project-creation-card {
+    margin: 0 var(--space-md);
+    border-radius: var(--radius-xl) !important;
+    border: 1px solid var(--border-light) !important;
+    box-shadow: var(--shadow-sm);
+    background: linear-gradient(135deg, var(--surface) 0%, rgba(248, 250, 252, 0.8) 100%);
+    overflow: visible;
+  }
+  
+  .project-creation-card::before {
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+  }
+  
+  .project-creation-card .feature-card-header {
+    padding: var(--space-lg);
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(59, 130, 246, 0.02) 100%);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    margin: -1px -1px 0 -1px;
+    border-bottom: 1px solid rgba(37, 99, 235, 0.1);
+  }
+  
+  .project-creation-card .card-body {
+    padding: var(--space-lg) var(--space-xl) var(--space-xl) var(--space-xl) !important;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  }
+}
+
+/* Mobile specific adjustments for project-creation-card */
+@media (max-width: 575px) {
+  .project-creation-card {
+    margin: var(--space-md) var(--space-sm);
+    border-radius: var(--radius-lg) !important;
+    background: linear-gradient(135deg, 
+      rgba(37, 99, 235, 0.02) 0%, 
+      rgba(59, 130, 246, 0.01) 50%,
+      var(--surface) 100%);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  .project-creation-card .card-body {
+    padding: var(--space-md);
+  }
+  
+  .project-creation-card .feature-card-header {
+    padding: var(--space-md);
+  }
+  
+  .creation-status {
+    padding: var(--space-sm);
+    font-size: 0.8rem;
+  }
+}
+
+/* Internal visual hierarchy improvements for mobile */
+@media (max-width: 767px) {
+  .project-creation-card .creation-wizard {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+    border: 1px solid rgba(37, 99, 235, 0.04);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.02);
+  }
+  
+  .project-creation-card .wizard-step {
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: var(--radius-sm);
+    padding: var(--space-md);
+    margin-bottom: var(--space-sm);
+    border: 1px solid rgba(37, 99, 235, 0.02);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+  }
+  
+  .project-creation-card .wizard-step.active {
+    border: none;
+    background: transparent;
+    box-shadow: none;
+  }
+  
+  .project-creation-card .wizard-controls {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+    margin-top: var(--space-lg);
+    border: 1px solid rgba(37, 99, 235, 0.03);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+  }
+  
+  .project-creation-card .wizard-controls .d-flex {
+    padding: 2px;
+    gap: var(--space-xs);
+  }
+  
+  .project-creation-card .wizard-controls .btn {
+    padding: var(--space-sm) var(--space-md);
+    font-size: 0.9rem;
+    margin: 0 var(--space-xs);
+  }
+}
+
+@media (max-width: 575px) {
+  .project-creation-card .creation-wizard,
+  .project-creation-card .wizard-step,
+  .project-creation-card .wizard-controls {
+    padding: var(--space-sm);
+  }
+}
+
+/* ============================================
+   RESPONSIVE SPACING ADJUSTMENTS
+   ============================================ */
+
+/* Tablet adjustments */
+@media (max-width: 991px) {
+  .project-creation-card .card-body {
+    padding: var(--space-lg) var(--space-lg) var(--space-xl) var(--space-lg) !important;
+  }
+  
+  .project-creation-card .wizard-step {
+    padding: var(--space-md) 0;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+  .project-creation-card .card-body {
+    padding: var(--space-md) var(--space-lg) var(--space-lg) var(--space-lg) !important;
+    background: white;
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  }
+  
+  .project-creation-card .creation-wizard.modern {
+    padding: 0;
+  }
+  
+  .project-creation-card .wizard-step {
+    padding: var(--space-md) 0;
+    margin-bottom: var(--space-md);
+  }
+  
+  .project-creation-card .wizard-controls {
+    margin-top: var(--space-md);
+    padding: var(--space-sm) 0 0 0;
+    background: transparent;
+    border: none;
+  }
+  
+  .project-creation-card .wizard-controls .d-flex {
+    padding: 2px;
+    gap: var(--space-xs);
+  }
+  
+  .project-creation-card .wizard-controls .btn {
+    padding: var(--space-sm) var(--space-md);
+    font-size: 0.85rem;
+    margin: 0 var(--space-xs);
+  }
+  
+  .wizard-step-title {
+    padding-left: var(--space-sm);
+  }
+}
+
+/* Small mobile adjustments */
+@media (max-width: 575px) {
+  .project-creation-card .card-body {
+    padding: var(--space-sm) var(--space-md) var(--space-md) var(--space-md) !important;
+    background: white;
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  }
+  
+  .project-creation-card .creation-wizard.modern {
+    padding: 0;
+  }
+  
+  .project-creation-card .wizard-step {
+    padding: var(--space-sm) 0;
+    margin-bottom: var(--space-sm);
+  }
+  
+  .project-creation-card .wizard-controls {
+    margin-top: var(--space-sm);
+    padding: 2px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+  
+  .project-creation-card .wizard-controls .d-flex {
+    padding: 2px;
+    gap: var(--space-xs);
+  }
+  
+  .project-creation-card .wizard-controls .btn {
+    padding: var(--space-xs) var(--space-sm);
+    font-size: 0.8rem;
+    margin: 0 var(--space-xs);
+  }
+  
+  .wizard-step-title {
+    padding-left: var(--space-xs);
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .project-creation-card .card-body {
+    padding: var(--space-sm) var(--space-sm) var(--space-md) var(--space-sm) !important;
+    background: white;
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+  }
+  
+  .wizard-step-title {
+    padding-left: var(--space-xs);
+    font-size: 1.1rem;
+  }
+  
+  .project-type-card {
+    height: 170px;
+    padding: var(--space-sm);
+  }
+  
+  .project-type-icon {
+    font-size: 1.5rem;
+  }
+  
+  .project-type-name {
+    font-size: 0.9rem;
+  }
+  
+  .project-type-description {
+    font-size: 0.75rem;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+  }
+}
+
+/* ============================================
+   PROJECT TYPE CARDS SPACING IMPROVEMENTS
+   ============================================ */
+
+/* Add better spacing between project type cards */
+#projectTypesContainer {
+  margin: var(--space-md) 0;
+}
+
+#projectTypesContainer .col-lg-3,
+#projectTypesContainer .col-md-6 {
+  padding: var(--space-sm);
+}
+
+/* Improve card spacing in different screen sizes */
+@media (min-width: 992px) {
+  #projectTypesContainer .col-lg-3 {
+    padding: var(--space-md);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #projectTypesContainer .col-md-6 {
+    padding: var(--space-sm) var(--space-md);
+  }
+}
+
+@media (max-width: 767px) {
+  #projectTypesContainer .col-lg-3,
+  #projectTypesContainer .col-md-6 {
+    padding: var(--space-sm) var(--space-xs);
+    margin-bottom: var(--space-md);
+  }
+}
+
+@media (max-width: 575px) {
+  #projectTypesContainer .col-lg-3,
+  #projectTypesContainer .col-md-6 {
+    padding: var(--space-xs);
+    margin-bottom: var(--space-sm);
+  }
+}
+
+/* ============================================
+   PROJECT CREATION WIZARD
+   ============================================ */

@@ -1,0 +1,21 @@
+{
+  "name": "localforge-engine-web",
+  "version": "1.0.0",
+  "description": "Static demo preview of LocalForge Engine - Local CI/CD Pipeline Manager",
+  "main": "index.html",
+  "keywords": [
+    "demo",
+    "static-site",
+    "ci-cd",
+    "pipeline",
+    "developer-tools",
+    "preview"
+  ],
+  "author": "LocalForge Engine",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HamiltonLeguizamon/localforge-engine-web"
+  },
+  "homepage": "https://HamiltonLeguizamon.github.io/localforge-engine-web"
+}

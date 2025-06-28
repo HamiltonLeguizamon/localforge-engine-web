@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Management - LocalForge Engine</title>
+
+    <!-- Bootstrap and Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/projects.css">
+</head>
+
+<body class="projects-page">
+    <!-- Modern Navigation -->
+    <nav class="landing-nav">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center py-3">
+                <div class="landing-brand">
+                    <i class="fas fa-code-branch me-2"></i>
+                    <span>LocalForge Engine</span>
+                </div>
+                <div class="landing-actions">
+                    <a href="pipelines.html" class="btn btn-outline-light btn-sm me-2">
+                        <i class="fas fa-play me-1"></i>Pipelines
+                    </a>
+                    <a href="projects.html" class="btn btn-primary btn-sm me-2">
+                        <i class="fas fa-folder-plus me-1"></i>Projects
+                    </a>
+                    <a href="index.html" class="btn btn-outline-light btn-sm">
+                        <i class="fas fa-home me-1"></i>Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section for Projects -->
+    <section class="projects-hero">
+        <div class="hero-background"></div>
+        <div class="container">
+            <div class="row align-items-center" style="min-height: 40vh;">
+                <div class="col-lg-8">
+                    <div class="hero-content">
+                        <div class="hero-badge">
+                            <i class="fas fa-magic me-2"></i>
+                            Project Generator
+                        </div>
+                        <h1 class="hero-title">
+                            <span class="text-accent">Project Management</span><br>
+                            Templates and Scaffolding
+                        </h1>
+                        <p class="hero-description">
+                            Create new projects with predefined templates and automatic configuration.
+                            Flask, Django, Node.js and more, ready in seconds.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="stats-mini hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-value" id="availableTemplates">12</div>
+                            <div class="stat-label">Templates</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="projectsCreated">48</div>
+                            <div class="stat-label">Created</div>
+                        </div>
+                        <div class="connection-status connected" id="connectionStatus">
+                            <i class="fas fa-wifi"></i> <span>Connected</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Section -->
+    <section class="main-content">
+        <div class="container">
+            <!-- Project Creation Form -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="feature-card project-creation-card">
+                        <div class="feature-card-header creation-header">
+                            <div class="feature-card-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <div class="header-content">
+                                <h5 class="card-title">Create New Project</h5>
+                                <div id="projectCreationStatus" class="creation-status">
+                                    <i class="fas fa-check-circle me-1"></i>
+                                    Ready to create
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body p-4">
+                            <div class="creation-wizard modern">
+                                <!-- Step 1: Type Selection -->
+                                <div class="wizard-step active" id="step1">
+                                    <h6 class="wizard-step-title">
+                                        <div class="step-number">1</div>
+                                        <span>Select project type</span>
+                                    </h6>
+                                    <div class="row g-3" id="projectTypesContainer">
+                                        <div class="col-lg-3 col-md-6">
+                                            <div class="project-type-card" data-type="flask">
+                                                <div class="project-type-icon">
+                                                    <i class="fab fa-python"></i>
+                                                </div>
+                                                <div class="project-type-name">Flask API</div>
+                                                <div class="project-type-description">
+                                                    Python web framework for building RESTful APIs and web applications
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-6">
+                                            <div class="project-type-card" data-type="django">
+                                                <div class="project-type-icon">
+                                                    <i class="fab fa-python"></i>
+                                                </div>
+                                                <div class="project-type-name">Django App</div>
+                                                <div class="project-type-description">
+                                                    Full-stack Python framework with admin panel and ORM
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-6">
+                                            <div class="project-type-card" data-type="react">
+                                                <div class="project-type-icon">
+                                                    <i class="fab fa-react"></i>
+                                                </div>
+                                                <div class="project-type-name">React App</div>
+                                                <div class="project-type-description">
+                                                    Modern frontend application with TypeScript support
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-6">
+                                            <div class="project-type-card" data-type="nodejs">
+                                                <div class="project-type-icon">
+                                                    <i class="fab fa-node-js"></i>
+                                                </div>
+                                                <div class="project-type-name">Node.js API</div>
+                                                <div class="project-type-description">
+                                                    Express-based backend API with TypeScript
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Step 2: Configuration -->
+                                <div class="wizard-step" id="step2">
+                                    <h6 class="wizard-step-title">
+                                        <div class="step-number">2</div>
+                                        <span>Configure your project</span>
+                                    </h6>
+
+                                    <!-- Standard Configuration -->
+                                    <div id="standardConfig" class="row g-4">
+                                        <div class="col-md-6">
+                                            <label for="projectName" class="form-label fw-semibold">
+                                                <i class="fas fa-file-signature me-1"></i>Project Name
+                                            </label>
+                                            <input type="text" class="form-control modern-input" id="projectName"
+                                                placeholder="My Awesome Project" value="E-Commerce Dashboard">
+                                            <div class="form-text">
+                                                Descriptive project name (can contain spaces)
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="outputDir" class="form-label fw-semibold">
+                                                <i class="fas fa-folder me-1"></i>Target Directory
+                                            </label>
+                                            <input type="text" class="form-control modern-input" id="outputDir"
+                                                value="./generated-projects">
+                                            <div class="form-text">
+                                                Directory where the project will be created
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Project Preview -->
+                                    <div id="projectPreview" class="project-preview modern mt-4">
+                                        <h6 class="preview-title">
+                                            <i class="fas fa-eye me-1"></i>Project Preview
+                                        </h6>
+                                        <div class="preview-card modern">
+                                            <div class="preview-header">
+                                                <div class="project-icon" id="previewIcon">
+                                                    <i class="fab fa-python"></i>
+                                                </div>
+                                                <div class="project-info">
+                                                    <h6 id="previewName" class="mb-1">E-Commerce Dashboard</h6>
+                                                    <p id="previewPath" class="text-muted mb-0">./generated-projects/e-commerce-dashboard/</p>
+                                                </div>
+                                            </div>
+                                            <div class="preview-features">
+                                                <h6 class="mb-2">Includes:</h6>
+                                                <ul id="previewFeatures" class="feature-list modern">
+                                                    <li>Complete Flask application structure</li>
+                                                    <li>RESTful API endpoints</li>
+                                                    <li>Database models and migrations</li>
+                                                    <li>Authentication system</li>
+                                                    <li>Docker configuration</li>
+                                                    <li>CI/CD pipeline setup</li>
+                                                    <li>Testing framework</li>
+                                                    <li>Documentation templates</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Wizard Controls -->
+                                <div class="wizard-controls mt-4">
+                                    <div class="d-flex justify-content-between">
+                                        <button id="prevStepBtn" class="btn btn-outline-secondary btn-modern"
+                                            style="display: none;">
+                                            <i class="fas fa-arrow-left me-1"></i>Previous
+                                        </button>
+                                        <div class="ms-auto">
+                                            <button id="nextStepBtn" class="btn btn-primary btn-modern">
+                                                Next <i class="fas fa-arrow-right ms-1"></i>
+                                            </button>
+                                            <button id="createProjectBtn" class="btn btn-success btn-modern"
+                                                style="display: none;">
+                                                <i class="fas fa-magic me-1"></i>Create Project
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Creation Progress & Logs -->
+            <div class="row" id="creationProgressSection" style="display: none;">
+                <div class="col-12">
+                    <div class="feature-card progress-panel">
+                        <div class="feature-card-header">
+                            <div class="feature-card-icon bg-info">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <h5 class="card-title">Creation Progress</h5>
+                        </div>
+                        <div class="card-body">
+                            <!-- Progress Bar -->
+                            <div class="creation-progress modern mb-4">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span id="progressText" class="progress-text">Starting creation...</span>
+                                    <span id="progressPercentage" class="progress-percentage">0%</span>
+                                </div>
+                                <div class="progress modern-progress-bar">
+                                    <div id="creationProgressBar"
+                                        class="progress-bar bg-gradient-success progress-bar-striped progress-bar-animated"
+                                        role="progressbar" style="width: 0%"></div>
+                                </div>
+                            </div>
+
+                            <!-- Creation Steps -->
+                            <div class="creation-steps modern">
+                                <div class="step-item modern" id="stepValidation">
+                                    <div class="step-indicator">
+                                        <i class="fas fa-check-circle step-icon"></i>
+                                    </div>
+                                    <span class="step-text">Parameter validation</span>
+                                </div>
+                                <div class="step-item modern" id="stepDirectory">
+                                    <div class="step-indicator">
+                                        <i class="fas fa-circle step-icon"></i>
+                                    </div>
+                                    <span class="step-text">Directory creation</span>
+                                </div>
+                                <div class="step-item modern" id="stepFiles">
+                                    <div class="step-indicator">
+                                        <i class="fas fa-circle step-icon"></i>
+                                    </div>
+                                    <span class="step-text">File generation</span>
+                                </div>
+                                <div class="step-item modern" id="stepConfig">
+                                    <div class="step-indicator">
+                                        <i class="fas fa-circle step-icon"></i>
+                                    </div>
+                                    <span class="step-text">Project configuration</span>
+                                </div>
+                                <div class="step-item modern" id="stepPipeline">
+                                    <div class="step-indicator">
+                                        <i class="fas fa-circle step-icon"></i>
+                                    </div>
+                                    <span class="step-text">Pipeline configuration</span>
+                                </div>
+                            </div>
+
+                            <!-- Logs Container -->
+                            <div class="logs-section mt-4">
+                                <h6 class="section-subtitle mb-3">
+                                    <i class="fas fa-terminal me-1"></i>Detailed Logs
+                                </h6>
+                                <div id="projectCreationLogs" class="creation-logs modern">
+                                    <div class="empty-state">
+                                        <div class="empty-icon">
+                                            <i class="fas fa-hourglass-half"></i>
+                                        </div>
+                                        <p class="empty-text">Waiting for creation to start...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modern Footer -->
+    <footer class="landing-footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="footer-brand">
+                        <i class="fas fa-code-branch me-2"></i>
+                        <span>LocalForge Engine</span>
+                    </div>
+                    <p class="footer-description">
+                        Local tool for developers. Project scaffolding made simple.
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="footer-info">
+                        <small>Project Generator - Demo Preview</small><br>
+                        <small class="text-muted">Interactive demo - no real project creation</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/demo-projects.js"></script>
+</body>
+
+</html>
