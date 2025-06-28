@@ -82,7 +82,6 @@ let projectTypes = [
 document.addEventListener('DOMContentLoaded', function() {
     initializeProjectTypes();
     setupEventListeners();
-    initializeDefaultState(); // Nueva función para estado inicial
     updateFormValidation();
     updateStats();
 });

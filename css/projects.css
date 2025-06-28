@@ -278,7 +278,7 @@
 
 /* Desktop and large tablets - ensure good spacing for project-preview */
 .project-preview.modern {
-  margin-top: var(--space-2xl) !important; /* Override Bootstrap mt-4 con más espacio */
+  margin-top: var(--space-lg) !important; /* Reducido de 2xl a lg */
 }
 
 .preview-card {
@@ -295,6 +295,7 @@
   border-radius: var(--radius-xl);
   overflow: hidden;
   position: relative;
+  padding: var(--space-md); /* Reducido de xl a md */
 }
 
 .preview-card.modern::before {
@@ -310,20 +311,20 @@
 .preview-header {
   display: flex;
   align-items: center;
-  margin-bottom: var(--space-lg);
-  padding-bottom: var(--space-lg);
+  margin-bottom: var(--space-md); /* Reducido de lg a md */
+  padding-bottom: var(--space-md); /* Reducido de lg a md */
   border-bottom: 2px solid var(--border);
 }
 
 .project-icon {
   font-size: 2.5rem;
   color: var(--success);
-  margin-right: var(--space-lg);
-  padding: var(--space-md);
+  margin-right: var(--space-md); /* Reducido de lg a md */
+  padding: var(--space-sm); /* Reducido de md a sm */
   background: rgba(16, 185, 129, 0.1);
   border-radius: var(--radius-lg);
-  width: 4rem;
-  height: 4rem;
+  width: 3.5rem; /* Reducido de 4rem a 3.5rem */
+  height: 3.5rem; /* Reducido de 4rem a 3.5rem */
   display: flex;
   align-items: center;
   justify-content: center;
