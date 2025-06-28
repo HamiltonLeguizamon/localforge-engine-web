@@ -6,8 +6,8 @@
 // Demo state and project types must be global for all functions
 let demoState = {
     currentStep: 1,
-    selectedType: null,
-    projectName: '',
+    selectedType: 'flask', // Preseleccionar Flask por defecto
+    projectName: 'E-Commerce Dashboard', // Nombre preestablecido
     outputDir: './generated-projects',
     isCreating: false
 };
@@ -80,86 +80,9 @@ let projectTypes = [
 ];
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize demo state
-    // const demoState = {
-    //     currentStep: 1,
-    //     selectedType: null,
-    //     projectName: '',
-    //     outputDir: './generated-projects',
-    //     isCreating: false
-    // };
-
-    // Initialize demo data
-    // const projectTypes = [
-    //     {
-    //         id: 'flask',
-    //         name: 'Flask API',
-    //         icon: 'fab fa-python',
-    //         description: 'Python web framework for building RESTful APIs and web applications',
-    //         features: [
-    //             'Complete Flask application structure',
-    //             'RESTful API endpoints',
-    //             'Database models and migrations',
-    //             'Authentication system',
-    //             'Docker configuration',
-    //             'CI/CD pipeline setup',
-    //             'Testing framework',
-    //             'Documentation templates'
-    //         ]
-    //     },
-    //     {
-    //         id: 'django',
-    //         name: 'Django App',
-    //         icon: 'fab fa-python',
-    //         description: 'Full-stack Python framework with admin panel and ORM',
-    //         features: [
-    //             'Django project structure',
-    //             'Admin interface',
-    //             'User authentication',
-    //             'Database models',
-    //             'URL routing',
-    //             'Template system',
-    //             'Static files handling',
-    //             'Deployment configuration'
-    //         ]
-    //     },
-    //     {
-    //         id: 'react',
-    //         name: 'React App',
-    //         icon: 'fab fa-react',
-    //         description: 'Modern frontend application with TypeScript support',
-    //         features: [
-    //             'React with TypeScript',
-    //             'Modern build tools (Vite)',
-    //             'Component library setup',
-    //             'Routing configuration',
-    //             'State management',
-    //             'Testing utilities',
-    //             'ESLint and Prettier',
-    //             'Deployment scripts'
-    //         ]
-    //     },
-    //     {
-    //         id: 'nodejs',
-    //         name: 'Node.js API',
-    //         icon: 'fab fa-node-js',
-    //         description: 'Express-based backend API with TypeScript',
-    //         features: [
-    //             'Express.js server',
-    //             'TypeScript configuration',
-    //             'Database integration',
-    //             'Authentication middleware',
-    //             'API documentation',
-    //             'Error handling',
-    //             'Logging system',
-    //             'Docker support'
-    //         ]
-    //     }
-    // ];
-
-    // Initialize UI
     initializeProjectTypes();
     setupEventListeners();
+    initializeDefaultState(); // Nueva función para estado inicial
     updateFormValidation();
     updateStats();
 });

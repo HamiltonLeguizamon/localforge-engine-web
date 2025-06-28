@@ -91,6 +91,13 @@ body {
   min-height: 70px;
 }
 
+/* Header no persistente en móviles */
+@media (max-width: 768px) {
+  .landing-nav {
+    position: relative;
+  }
+}
+
 .landing-nav .container {
   max-width: 100%;
   padding: 0 1rem;
@@ -204,9 +211,11 @@ body {
   
   .landing-nav .d-flex {
     min-height: auto;
-    flex-direction: column;
+    flex-direction: row;
     gap: 0.75rem;
     padding: 0.5rem 0;
+    justify-content: space-between;
+    align-items: center;
   }
   
   .landing-brand {
@@ -215,30 +224,28 @@ body {
   }
   
   .landing-actions {
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    justify-content: center;
+    gap: 0.3rem;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
     order: 2;
-    width: 100%;
     display: flex;
   }
   
   .landing-actions .btn-sm {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.8rem;
-    flex: 0 0 calc(33.333% - 0.34rem);
-    min-width: calc(33.333% - 0.34rem);
-    max-width: calc(33.333% - 0.34rem);
+    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem;
+    flex-shrink: 1;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 38px;
+    height: 32px;
     margin: 0;
+    min-width: auto;
   }
   
   .landing-actions .btn .me-1 {
-    margin-right: 0.25rem !important;
+    margin-right: 0.2rem !important;
   }
   
   /* Eliminar cualquier margen externo que pueda desalinear los botones */
@@ -253,7 +260,7 @@ body {
   
   /* Anular clases Bootstrap me-2 en móvil para perfecta alineación */
   .landing-actions .btn-sm.me-2 {
-    margin-right: 0 !important;
+    margin-right: 0.4rem !important;
   }
 }
 
@@ -643,8 +650,8 @@ section[class*="hero"],
 @media (max-width: 991px) {
   section[class*="hero"], 
   .hero-section {
-    padding-top: 90px;
-    min-height: 50vh;
+    padding-top: 80px;
+    min-height: 45vh;
   }
   
   .hero-content {
@@ -655,50 +662,50 @@ section[class*="hero"],
 @media (max-width: 767px) {
   section[class*="hero"], 
   .hero-section {
-    padding-top: 110px;
-    min-height: 40vh;
+    padding-top: 70px;
+    min-height: 35vh;
   }
   
   .hero-content {
-    padding: var(--space-lg) 0 var(--space-lg) 0;
+    padding: var(--space-md) 0 var(--space-lg) 0;
   }
   
   .hero-badge {
-    margin-top: var(--space-md);
+    margin-top: var(--space-sm);
   }
 }
 
 @media (max-width: 575px) {
   section[class*="hero"], 
   .hero-section {
-    padding-top: 130px;
-    min-height: 35vh;
+    padding-top: 60px;
+    min-height: 30vh;
   }
   
   .hero-content {
-    padding: var(--space-xl) 0 var(--space-md) 0;
+    padding: var(--space-lg) 0 var(--space-md) 0;
   }
   
   .hero-badge {
-    margin-top: var(--space-lg);
+    margin-top: var(--space-sm);
   }
 }
 
 @media (max-width: 480px) {
   section[class*="hero"], 
   .hero-section {
-    padding-top: 150px;
+    padding-top: 50px;
   }
   
   .hero-content {
-    padding: var(--space-xl) 0 var(--space-md) 0;
+    padding: var(--space-md) 0 var(--space-md) 0;
   }
 }
 
 @media (max-width: 400px) {
   section[class*="hero"], 
   .hero-section {
-    padding-top: 170px;
+    padding-top: 40px;
   }
 }
 
@@ -897,7 +904,6 @@ section[class*="hero"],
   }
   
   .landing-actions {
-    flex-direction: column;
     gap: var(--space-sm);
   }
   

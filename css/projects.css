@@ -193,7 +193,8 @@
 }
 
 .creation-wizard.modern .wizard-step {
-  padding: var(--space-lg) 0;
+  padding: var(--space-lg) var(--space-md);
+  margin-bottom: var(--space-lg);
 }
 
 .creation-wizard.modern .form-control,
@@ -201,9 +202,10 @@
   background: var(--gray-50);
   border: 1px solid rgba(226, 232, 240, 0.8);
   border-radius: var(--radius-lg);
-  padding: var(--space-md) var(--space-lg);
+  padding: var(--space-lg) var(--space-lg);
   font-size: 0.95rem;
   transition: all 0.2s ease;
+  margin-bottom: var(--space-sm);
 }
 
 .creation-wizard.modern .form-control:focus,
@@ -216,7 +218,7 @@
 .creation-wizard.modern .form-label {
   font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-md);
   font-size: 0.95rem;
 }
 
@@ -238,10 +240,11 @@
 
 .wizard-controls .btn {
   border-radius: var(--radius-lg);
-  padding: var(--space-md) var(--space-xl);
+  padding: var(--space-lg) var(--space-2xl); /* Aumentado el padding */
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 1rem; /* Aumentado de 0.95rem a 1rem */
   margin: 0 var(--space-sm);
+  min-height: 48px; /* Altura mínima para mejor touch */
 }
 
 @keyframes fadeInUp {
@@ -271,6 +274,11 @@
   padding: var(--space-2xl);
   border: 2px solid var(--border-light);
   box-shadow: var(--shadow-sm);
+}
+
+/* Desktop and large tablets - ensure good spacing for project-preview */
+.project-preview.modern {
+  margin-top: var(--space-2xl) !important; /* Override Bootstrap mt-4 con más espacio */
 }
 
 .preview-card {
@@ -568,7 +576,7 @@
 .project-creation-card .card-body {
   padding: var(--space-lg) var(--space-xl) var(--space-xl) var(--space-xl) !important;
   background: white;
-  border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+  border-radius: var(--radius-xl) var(--radius-xl) var(--radius-xl) var(--radius-xl); /* Bordes redondeados superior e inferior */
   /* This rule overrides Bootstrap's p-4 class and other conflicting mobile styles */
 }
 
@@ -687,18 +695,10 @@
     border-radius: var(--radius-md) var(--radius-md) 0 0;
   }
   
-  .project-creation-card .feature-card-header {
-    padding: var(--space-lg);
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(59, 130, 246, 0.02) 100%);
-    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-    margin: -1px -1px 0 -1px;
-    border-bottom: 1px solid rgba(37, 99, 235, 0.1);
-  }
-  
   .project-creation-card .card-body {
     padding: var(--space-lg) var(--space-xl) var(--space-xl) var(--space-xl) !important;
     background: rgba(255, 255, 255, 0.7);
-    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    border-radius: var(--radius-lg); /* Bordes redondeados completos para tablets */
   }
 }
 
@@ -718,7 +718,7 @@
   .project-type-card {
     padding: var(--space-md);
     margin-bottom: var(--space-sm);
-    height: 180px;
+    height: 220px; /* Aumentado de 180px a 220px */
   }
   
   .project-type-icon {
@@ -732,10 +732,10 @@
   }
   
   .project-type-description {
-    font-size: 0.8rem;
+    font-size: 0.85rem; /* Aumentado de 0.8rem a 0.85rem */
     margin-bottom: var(--space-sm);
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
+    -webkit-line-clamp: 3; /* Aumentado de 2 a 3 líneas */
+    line-clamp: 3;
   }
   
   .feature-card {
@@ -777,25 +777,17 @@
     border-radius: var(--radius-md) var(--radius-md) 0 0;
   }
   
-  .project-creation-card .feature-card-header {
-    padding: var(--space-lg);
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(59, 130, 246, 0.02) 100%);
-    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-    margin: -1px -1px 0 -1px;
-    border-bottom: 1px solid rgba(37, 99, 235, 0.1);
-  }
-  
   .project-creation-card .card-body {
     padding: var(--space-lg) var(--space-xl) var(--space-xl) var(--space-xl) !important;
     background: rgba(255, 255, 255, 0.7);
-    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    border-radius: var(--radius-lg); /* Bordes redondeados completos para móviles */
   }
 }
 
 /* Mobile specific adjustments for project-creation-card */
 @media (max-width: 575px) {
   .project-creation-card {
-    margin: var(--space-md) var(--space-sm);
+    margin: var(--space-sm) var(--space-xs);
     border-radius: var(--radius-lg) !important;
     background: linear-gradient(135deg, 
       rgba(37, 99, 235, 0.02) 0%, 
@@ -805,75 +797,67 @@
   }
   
   .project-creation-card .card-body {
-    padding: var(--space-md);
-  }
-  
-  .project-creation-card .feature-card-header {
-    padding: var(--space-md);
+    padding: var(--space-sm) var(--space-md) var(--space-lg) var(--space-md) !important; /* Optimizar padding */
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: var(--radius-lg); /* Bordes redondeados completos */
   }
   
   .creation-status {
-    padding: var(--space-sm);
+    padding: var(--space-xs) var(--space-sm);
     font-size: 0.8rem;
+    border-radius: var(--radius-md);
+  }
+  
+  /* Mejorar texto overflow y padding en móviles */
+  .wizard-step-title {
+    font-size: 1rem;
+    padding-left: var(--space-xs);
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-sm);
+  }
+  
+  .step-number {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+  
+  /* Ajustar grid de project types para móviles */
+  #projectTypesContainer .col-lg-3,
+  #projectTypesContainer .col-md-6 {
+    padding: var(--space-xs);
+  }
+  
+  /* Mejorar wizard controls - eliminando márgenes negativos problemáticos */
+  .wizard-controls {
+    padding: var(--space-sm);
+    margin: var(--space-md) 0 0 0;
+    border-radius: var(--radius-md);
+    background: rgba(248, 250, 252, 0.6);
+    border: 1px solid rgba(226, 232, 240, 0.4);
+  }
+  
+  .wizard-controls .btn {
+    padding: var(--space-sm) var(--space-md);
+    font-size: 0.85rem;
+    border-radius: var(--radius-sm);
+    min-height: 40px;
+    flex: 1; /* Mismo tamaño para ambos botones */
+    max-width: none; /* Sin límite de ancho */
   }
 }
 
 /* Internal visual hierarchy improvements for mobile */
 @media (max-width: 767px) {
-  .project-creation-card .creation-wizard {
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: var(--radius-md);
-    padding: var(--space-md);
-    border: 1px solid rgba(37, 99, 235, 0.04);
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.02);
-  }
-  
-  .project-creation-card .wizard-step {
-    background: rgba(255, 255, 255, 0.6);
-    border-radius: var(--radius-sm);
-    padding: var(--space-md);
-    margin-bottom: var(--space-sm);
-    border: 1px solid rgba(37, 99, 235, 0.02);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
-  }
-  
-  .project-creation-card .wizard-step.active {
-    border: none;
-    background: transparent;
-    box-shadow: none;
-  }
-  
-  .project-creation-card .wizard-controls {
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: var(--radius-md);
-    padding: var(--space-md);
-    margin-top: var(--space-lg);
-    border: 1px solid rgba(37, 99, 235, 0.03);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
-  }
-  
-  .project-creation-card .wizard-controls .d-flex {
-    padding: 2px;
-    gap: var(--space-xs);
-  }
-  
-  .project-creation-card .wizard-controls .btn {
-    padding: var(--space-sm) var(--space-md);
-    font-size: 0.9rem;
-    margin: 0 var(--space-xs);
-  }
+  /* Remover reglas duplicadas y conflictivas - ya manejadas arriba */
 }
 
 @media (max-width: 575px) {
-  .project-creation-card .creation-wizard,
-  .project-creation-card .wizard-step,
-  .project-creation-card .wizard-controls {
-    padding: var(--space-sm);
-  }
+  /* Remover reglas duplicadas - ya manejadas arriba en las nuevas optimizaciones móviles */
 }
 
 /* ============================================
-   RESPONSIVE SPACING ADJUSTMENTS
+   RESPONSIVE SPACING ADJUSTMENTS - CLEANED
    ============================================ */
 
 /* Tablet adjustments */
@@ -887,82 +871,15 @@
   }
 }
 
-/* Mobile adjustments */
+/* Mobile adjustments - cleaned up, main optimizations handled above */
 @media (max-width: 767px) {
-  .project-creation-card .card-body {
-    padding: var(--space-md) var(--space-lg) var(--space-lg) var(--space-lg) !important;
-    background: white;
-    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
-  }
-  
-  .project-creation-card .creation-wizard.modern {
-    padding: 0;
-  }
-  
-  .project-creation-card .wizard-step {
-    padding: var(--space-md) 0;
-    margin-bottom: var(--space-md);
-  }
-  
-  .project-creation-card .wizard-controls {
-    margin-top: var(--space-md);
-    padding: var(--space-sm) 0 0 0;
-    background: transparent;
-    border: none;
-  }
-  
-  .project-creation-card .wizard-controls .d-flex {
-    padding: 2px;
-    gap: var(--space-xs);
-  }
-  
-  .project-creation-card .wizard-controls .btn {
-    padding: var(--space-sm) var(--space-md);
-    font-size: 0.85rem;
-    margin: 0 var(--space-xs);
-  }
-  
   .wizard-step-title {
     padding-left: var(--space-sm);
   }
 }
 
-/* Small mobile adjustments */
+/* Small mobile adjustments - cleaned up, main optimizations handled above */
 @media (max-width: 575px) {
-  .project-creation-card .card-body {
-    padding: var(--space-sm) var(--space-md) var(--space-md) var(--space-md) !important;
-    background: white;
-    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
-  }
-  
-  .project-creation-card .creation-wizard.modern {
-    padding: 0;
-  }
-  
-  .project-creation-card .wizard-step {
-    padding: var(--space-sm) 0;
-    margin-bottom: var(--space-sm);
-  }
-  
-  .project-creation-card .wizard-controls {
-    margin-top: var(--space-sm);
-    padding: 2px;
-    background: transparent;
-    border: none;
-    box-shadow: none;
-  }
-  
-  .project-creation-card .wizard-controls .d-flex {
-    padding: 2px;
-    gap: var(--space-xs);
-  }
-  
-  .project-creation-card .wizard-controls .btn {
-    padding: var(--space-xs) var(--space-sm);
-    font-size: 0.8rem;
-    margin: 0 var(--space-xs);
-  }
-  
   .wizard-step-title {
     padding-left: var(--space-xs);
   }
@@ -973,7 +890,7 @@
   .project-creation-card .card-body {
     padding: var(--space-sm) var(--space-sm) var(--space-md) var(--space-sm) !important;
     background: white;
-    border-radius: 0 0 var(--radius-md) var(--radius-md);
+    border-radius: var(--radius-md); /* Bordes redondeados completos para pantallas muy pequeñas */
   }
   
   .wizard-step-title {
@@ -982,7 +899,6 @@
   }
   
   .project-type-card {
-    height: 170px;
     padding: var(--space-sm);
   }
   
@@ -1045,5 +961,537 @@
 }
 
 /* ============================================
-   PROJECT CREATION WIZARD
+   MOBILE OPTIMIZATIONS FOR PROJECT PREVIEW
    ============================================ */
+
+/* Mobile optimizations for project-preview modern */
+@media (max-width: 767px) {
+  /* Reduce excessive padding in project-preview modern */
+  .project-preview.modern {
+    padding: var(--space-lg);
+    margin-top: var(--space-xl) !important; /* Aumentado de var(--space-md) a var(--space-xl) */
+    border-radius: var(--radius-lg);
+    background: linear-gradient(135deg, 
+      rgba(248, 250, 252, 0.9) 0%, 
+      rgba(255, 255, 255, 0.95) 100%);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+  
+  /* Improve preview-header layout for mobile */
+  .preview-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid var(--border-light);
+    gap: var(--space-sm);
+  }
+  
+  /* Optimize project icon for mobile */
+  .project-icon {
+    font-size: 2rem;
+    color: var(--success);
+    margin-right: 0;
+    margin-bottom: var(--space-sm);
+    padding: var(--space-sm);
+    background: rgba(16, 185, 129, 0.08);
+    border-radius: var(--radius-md);
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+  }
+  
+  /* Improve project info typography for mobile */
+  .project-info {
+    width: 100%;
+  }
+  
+  .project-info h6 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-xs);
+    line-height: 1.3;
+  }
+  
+  .project-info p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin: 0;
+    font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+    background: rgba(248, 250, 252, 0.6);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(226, 232, 240, 0.5);
+  }
+  
+  /* Optimize preview-features for mobile */
+  .preview-features {
+    margin-top: var(--space-sm);
+  }
+  
+  .preview-features h6 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+  
+  .preview-features h6::before {
+    content: "✨";
+    font-size: 1rem;
+  }
+  
+  /* Improve feature list for mobile */
+  .feature-list.modern {
+    background: rgba(248, 250, 252, 0.4);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+    margin-top: var(--space-sm);
+    border: 1px solid rgba(226, 232, 240, 0.3);
+  }
+  
+  .feature-list.modern li {
+    padding: var(--space-sm) 0;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.3);
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  
+  .feature-list.modern li:last-child {
+    border-bottom: none;
+  }
+  
+  .feature-list.modern li:before {
+    content: "✓";
+    color: var(--success);
+    font-weight: bold;
+    margin-right: var(--space-sm);
+    font-size: 1rem;
+    width: 20px;
+    height: 20px;
+    background: rgba(16, 185, 129, 0.08);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+}
+
+/* Small mobile optimizations */
+@media (max-width: 575px) {
+  .project-preview.modern {
+    padding: var(--space-md);
+    margin-top: var(--space-lg) !important; /* Aumentado de var(--space-sm) a var(--space-lg) */
+    border-radius: var(--radius-md);
+  }
+  
+  .preview-header {
+    gap: var(--space-xs);
+    margin-bottom: var(--space-sm);
+    padding-bottom: var(--space-sm);
+  }
+  
+  .project-icon {
+    font-size: 1.75rem;
+    padding: var(--space-xs);
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-bottom: var(--space-xs);
+  }
+  
+  .project-info h6 {
+    font-size: 1rem;
+    margin-bottom: var(--space-xs);
+  }
+  
+  .project-info p {
+    font-size: 0.8rem;
+    padding: var(--space-xs);
+  }
+  
+  .preview-features h6 {
+    font-size: 0.9rem;
+    margin-bottom: var(--space-xs);
+  }
+  
+  .feature-list.modern {
+    padding: var(--space-sm);
+    margin-top: var(--space-xs);
+  }
+  
+  .feature-list.modern li {
+    padding: var(--space-xs) 0;
+    font-size: 0.85rem;
+  }
+  
+  .feature-list.modern li:before {
+    margin-right: var(--space-xs);
+    font-size: 0.9rem;
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .project-preview.modern {
+    padding: var(--space-sm);
+    margin-top: var(--space-md) !important; /* Aumentado de var(--space-xs) a var(--space-md) */
+  }
+  
+  .preview-header {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+  
+  .project-icon {
+    margin-bottom: 0;
+    margin-right: var(--space-sm);
+  }
+  
+  .project-info h6 {
+    font-size: 0.95rem;
+  }
+  
+  .project-info p {
+    font-size: 0.75rem;
+  }
+}
+
+/* ============================================
+   CREATION WIZARD MOBILE IMPROVEMENTS
+   ============================================ */
+
+/* Enhanced mobile styling for creation wizard */
+@media (max-width: 767px) {
+  .creation-wizard.modern {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    border: 1px solid rgba(226, 232, 240, 0.6);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+  
+  .creation-wizard.modern .wizard-step {
+    padding: var(--space-md) 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+  
+  .creation-wizard.modern .form-control,
+  .creation-wizard.modern .form-select {
+    background: rgba(248, 250, 252, 0.8);
+    border: 1px solid rgba(226, 232, 240, 0.6);
+    border-radius: var(--radius-md);
+    padding: var(--space-sm) var(--space-md);
+    font-size: 0.9rem;
+  }
+  
+  .creation-wizard.modern .form-control:focus,
+  .creation-wizard.modern .form-select:focus {
+    background: white;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.08);
+  }
+  
+  .creation-wizard.modern .form-label {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-xs);
+    font-size: 0.9rem;
+  }
+  
+  /* Wizard controls mobile optimization */
+  .wizard-controls {
+    background: rgba(248, 250, 252, 0.5);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+    margin-top: var(--space-md);
+    border: 1px solid rgba(226, 232, 240, 0.4);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  }
+  
+  .wizard-controls .d-flex {
+    padding: 0;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+  
+  .wizard-controls .btn {
+    border-radius: var(--radius-md);
+    padding: var(--space-md) var(--space-lg);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin: 0;
+    min-height: 44px;
+    flex: 1; /* Hacer que ambos botones tengan el mismo tamaño */
+    max-width: none; /* Asegurar que no hay límite de ancho */
+  }
+}
+
+@media (max-width: 575px) {
+  .creation-wizard.modern {
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+  }
+  
+  .wizard-controls {
+    padding: var(--space-sm);
+    margin-top: var(--space-sm);
+  }
+  
+  .wizard-controls .btn {
+    padding: var(--space-sm) var(--space-md);
+    font-size: 0.85rem;
+    min-height: 40px;
+    flex: 1; /* Ambos botones mismo tamaño */
+    max-width: none; /* Sin límite de ancho */
+  }
+}
+
+/* ============================================
+   STANDARD CONFIG IMPROVEMENTS
+   ============================================ */
+
+/* Mejorar spacing en el wizard step para evitar elementos aglutinados */
+.creation-wizard.modern .wizard-step {
+  padding: var(--space-lg) var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+/* Mejorar spacing en form groups */
+.creation-wizard.modern .mb-3,
+.creation-wizard.modern .form-group {
+  margin-bottom: var(--space-xl) !important;
+}
+
+/* Mejorar spacing en labels y controles */
+.creation-wizard.modern .form-label {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-md);
+  font-size: 0.95rem;
+}
+
+.creation-wizard.modern .form-control,
+.creation-wizard.modern .form-select {
+  background: var(--gray-50);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg) var(--space-lg);
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  margin-bottom: var(--space-sm);
+}
+
+/* Mobile optimizations for standard config */
+@media (max-width: 767px) {
+  .creation-wizard.modern .wizard-step {
+    padding: var(--space-md) var(--space-sm);
+    margin-bottom: var(--space-md);
+  }
+  
+  .creation-wizard.modern .mb-3,
+  .creation-wizard.modern .form-group {
+    margin-bottom: var(--space-lg) !important;
+  }
+  
+  .creation-wizard.modern .form-label {
+    margin-bottom: var(--space-sm);
+    font-size: 0.9rem;
+  }
+  
+  .creation-wizard.modern .form-control,
+  .creation-wizard.modern .form-select {
+    padding: var(--space-md) var(--space-lg);
+    font-size: 0.9rem;
+    margin-bottom: var(--space-xs);
+  }
+}
+
+@media (max-width: 575px) {
+  .creation-wizard.modern .wizard-step {
+    padding: var(--space-sm) var(--space-xs);
+    margin-bottom: var(--space-sm);
+  }
+  
+  .creation-wizard.modern .mb-3,
+  .creation-wizard.modern .form-group {
+    margin-bottom: var(--space-md) !important;
+  }
+  
+  .creation-wizard.modern .form-control,
+  .creation-wizard.modern .form-select {
+    padding: var(--space-sm) var(--space-md);
+    font-size: 0.85rem;
+  }
+}
+
+/* ============================================
+   FEATURE CARD HEADER IMPROVEMENTS
+   ============================================ */
+
+/* Asegurar que feature-card-header mantenga icono y texto en la misma línea */
+.feature-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--space-md);
+  padding: var(--space-xl);
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(59, 130, 246, 0.02) 100%);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  border-bottom: 1px solid rgba(37, 99, 235, 0.1);
+}
+
+.feature-card-header.creation-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--space-lg);
+  flex-wrap: nowrap; /* Evitar que se divida en líneas */
+}
+
+.feature-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  background: var(--gradient-primary);
+  color: white;
+  border-radius: var(--radius-lg);
+  font-size: 1.5rem;
+  flex-shrink: 0; /* No se encoja */
+  box-shadow: var(--shadow-sm);
+}
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-xs);
+  flex-grow: 1;
+  min-width: 0; /* Permite que el texto se ajuste si es necesario */
+}
+
+.header-content h5 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.header-content .creation-status {
+  margin-top: var(--space-xs);
+}
+
+/* Mobile optimizations para mantener icono y texto en línea */
+@media (max-width: 767px) {
+  .feature-card-header {
+    padding: var(--space-lg);
+    gap: var(--space-md);
+  }
+  
+  .feature-card-header.creation-header {
+    gap: var(--space-md);
+    flex-wrap: nowrap;
+  }
+  
+  .feature-card-icon {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+  }
+  
+  .header-content h5 {
+    font-size: 1.1rem;
+    line-height: 1.3;
+  }
+}
+
+@media (max-width: 575px) {
+  .feature-card-header {
+    padding: var(--space-md);
+    gap: var(--space-sm);
+  }
+  
+  .feature-card-header.creation-header {
+    gap: var(--space-sm);
+    flex-wrap: nowrap;
+  }
+  
+  .feature-card-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+  
+  .header-content h5 {
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+  
+  .header-content .creation-status {
+    font-size: 0.8rem;
+    padding: var(--space-xs) var(--space-sm);
+  }
+}
+
+/* Para pantallas muy pequeñas, mantener el layout horizontal pero ajustar tamaños */
+@media (max-width: 480px) {
+  .feature-card-header {
+    padding: var(--space-sm);
+    gap: var(--space-xs);
+  }
+  
+  .feature-card-header.creation-header {
+    gap: var(--space-xs);
+    flex-wrap: nowrap;
+  }
+  
+  .feature-card-icon {
+    width: 2.25rem;
+    height: 2.25rem;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  
+  .header-content h5 {
+    font-size: 0.95rem;
+    line-height: 1.3;
+  }
+}
+
+/* Solo si la pantalla es extremadamente pequeña, permitir wrap */
+@media (max-width: 320px) {
+  .feature-card-header.creation-header {
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+  
+  .feature-card-icon {
+    align-self: flex-start;
+  }
+  
+  .header-content {
+    width: 100%;
+  }
+}

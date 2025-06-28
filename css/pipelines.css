@@ -886,15 +886,7 @@
     border-radius: 0;
   }
   
-  .hero-title {
-    font-size: 1.75rem;
-    line-height: 1.2;
-  }
-  
-  .hero-description {
-    font-size: 0.9rem;
-    line-height: 1.4;
-  }
+  /* Removido override de hero-title y hero-description para usar el tamaño global igual que projects */
   
   .control-group .form-label {
     font-size: 0.85rem;
