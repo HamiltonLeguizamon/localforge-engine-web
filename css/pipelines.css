@@ -1003,13 +1003,6 @@
 
 /* Internal visual hierarchy improvements for mobile */
 @media (max-width: 767px) {
-  .pipeline-control.enhanced .control-group {
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: var(--radius-sm);
-    padding: var(--space-md);
-    margin-bottom: var(--space-md);
-    border: 1px solid rgba(37, 99, 235, 0.08);
-  }
   
   .pipeline-control.enhanced .btn-modern {
     background: linear-gradient(135deg, var(--primary) 0%, rgba(37, 99, 235, 0.9) 100%);

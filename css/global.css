@@ -275,6 +275,43 @@ body {
   }
 }
 
+@media (max-width: 575px) {
+  .landing-nav .d-flex {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: var(--space-xs);
+  }
+  .landing-brand {
+    width: 100%;
+    margin-bottom: var(--space-xs);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .landing-brand span {
+    width: 100%;
+    text-align: center;
+    display: block;
+  }
+  .landing-actions {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--space-xs);
+    margin-top: 0;
+  }
+  .landing-actions .btn {
+    flex: 1 1 0;
+    min-width: 0;
+    font-size: 0.95rem;
+    padding-left: var(--space-xs);
+    padding-right: var(--space-xs);
+  }
+}
+
 /* ============================================
    SHARED CARD STYLES
    ============================================ */
